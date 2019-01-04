@@ -18,6 +18,12 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RESTBASE.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="FileRender.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="PocoFoundationd.dll" />
@@ -25,5 +31,16 @@
     <None Include="PocoUtild.dll" />
     <None Include="PocoXMLd.dll" />
     <None Include="PocoJSONd.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="RESTBASE.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="FileRender.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Text.txt" />
   </ItemGroup>
 </Project>

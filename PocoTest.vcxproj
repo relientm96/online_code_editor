@@ -120,7 +120,9 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="FileRender.cpp" />
     <ClCompile Include="main.cpp" />
+    <ClCompile Include="RESTBASE.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="PocoFoundationd.dll" />
@@ -128,6 +130,13 @@
     <None Include="PocoNetd.dll" />
     <None Include="PocoUtild.dll" />
     <None Include="PocoXMLd.dll" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="FileRender.h" />
+    <ClInclude Include="RESTBASE.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="Text.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
