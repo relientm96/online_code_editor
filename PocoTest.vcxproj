@@ -125,18 +125,19 @@
     <ClCompile Include="RESTBASE.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="mainpage.html">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
     <None Include="PocoFoundationd.dll" />
     <None Include="PocoJSONd.dll" />
     <None Include="PocoNetd.dll" />
     <None Include="PocoUtild.dll" />
     <None Include="PocoXMLd.dll" />
+    <None Include="resume_2019.pdf" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileRender.h" />
     <ClInclude Include="RESTBASE.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="Text.txt" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -31,6 +31,8 @@
     <None Include="PocoUtild.dll" />
     <None Include="PocoXMLd.dll" />
     <None Include="PocoJSONd.dll" />
+    <None Include="resume_2019.pdf" />
+    <None Include="mainpage.html" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RESTBASE.h">
@@ -39,8 +41,5 @@
     <ClInclude Include="FileRender.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <Text Include="Text.txt" />
   </ItemGroup>
 </Project>

@@ -28,6 +28,15 @@ void restBaseClass::handleRequest(HTTPServerRequest &req, HTTPServerResponse &re
 		}
 	}
 
+	else if (req.getURI() == "/download") {
+	
+		if (req.getMethod() == "GET") {
+			resp.setStatus(HTTPResponse::HTTP_OK);
+			doDownload(req, resp);
+		}
+
+	}
+
 	else { //404 Response
 		resp.setStatus(HTTPResponse::HTTP_NOT_FOUND);
 		print404Response(req,resp);
