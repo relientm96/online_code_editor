@@ -5,22 +5,32 @@ void FileRender::doCreate(HTTPServerRequest &req, HTTPServerResponse &resp) {
 }
 
  void FileRender::doRead(HTTPServerRequest &req, HTTPServerResponse &resp) {
-	 resp.sendFile("mainpage.html", "text/html");
+	 resp.sendFile("codemirror/editor.html", "text/html");
  }
 
  void FileRender::doUpdate(HTTPServerRequest &req, HTTPServerResponse &resp) {
 	 printMessage(req, resp);
 
-	 std::cout << "Process Launched ..." << std::endl;
+	 std::cout << "gcc launched ..." << std::endl;
 
-	 std::string pathToArduino("C:/Program Files (x86)/Arduino/arduino.exe");
+	 std::string gccPath("C:/MinGW/bin/gcc.exe");
 	 
 	 std::vector<std::string> args;
-	 args.push_back("C:/Matthew Documents/MatthewHolidayProjects/PocoTest/PocoTest/testSketch/testSketch.ino");
+	 args.push_back("-Wall");
+	 args.push_back("-o");
+	 args.push_back("C:/Matthew Documents/MatthewHolidayProjects/PocoTest/PocoTest/Resources/outputFile");
+	 args.push_back("C:/Matthew Documents/MatthewHolidayProjects/PocoTest/PocoTest/Resources/outputFile.c");
 
 	 Poco::Pipe outPipe;
-	 Poco::ProcessHandle ph = Poco::Process::launch(pathToArduino, args, 0, &outPipe, 0);	 Poco::PipeInputStream istr(outPipe);	 std::ofstream ostr("processes.txt");
-	 Poco::StreamCopier::copyStream(istr, ostr);
+	 if (0 != Poco::Process::launch(gccPath, args, 0, &outPipe, 0).wait())
+		 throw std::runtime_error("Error at GCC Compilation!");
+
+	 std::cout << "Successful Compilation..." << std::endl;
+	 
+	// std::cout << "Succesful Run..." << std::endl;
+	 
+	// resp.sendFile(output);
+
  }
 
  void FileRender::doDelete(HTTPServerRequest &req, HTTPServerResponse &resp) {
@@ -28,7 +38,7 @@ void FileRender::doCreate(HTTPServerRequest &req, HTTPServerResponse &resp) {
  }
 
  void FileRender::doDownload(HTTPServerRequest &req, HTTPServerResponse &resp) {
-	 resp.sendFile("resume_2019.pdf", "application/pdf");
+	 resp.sendFile("Resources/resume_2019.pdf", "application/pdf");
  }
 
  void FileRender::printMessage(HTTPServerRequest &req, HTTPServerResponse &resp) {
