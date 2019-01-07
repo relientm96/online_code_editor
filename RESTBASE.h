@@ -14,6 +14,7 @@ using namespace Poco::Net;
 class restBaseClass : public HTTPRequestHandler {
 
 protected:
+
 	//Handles all requests
 	void handleRequest(HTTPServerRequest &req, HTTPServerResponse &resp);
 
@@ -22,12 +23,6 @@ protected:
 	virtual void doCreate(HTTPServerRequest &req, HTTPServerResponse &resp) = 0;
 	virtual void doDelete(HTTPServerRequest &req, HTTPServerResponse &resp) = 0;
 	virtual void doUpdate(HTTPServerRequest &req, HTTPServerResponse &resp) = 0;
-
-	//For Download Request
-	virtual void doDownload(HTTPServerRequest &req, HTTPServerResponse &resp) = 0;
-
-	//404 Response
-	void print404Response(HTTPServerRequest &req, HTTPServerResponse &resp);
 
 };
 

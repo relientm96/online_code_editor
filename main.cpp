@@ -4,6 +4,7 @@
 
 #include "FileRender.h"
 #include "CodeMirrorManager.h"
+#include "NotFound.h"
 
 using namespace Poco::Util;
 
@@ -17,8 +18,12 @@ public:
 			return new CodeMirrorManager;
 		}
 		//Handles file compilation requests
-		else 
+		else if (request.getURI() == "/") {
 			return new FileRender;
+		}
+		else {
+			return new NotFound;
+		}
 	}
 };
 

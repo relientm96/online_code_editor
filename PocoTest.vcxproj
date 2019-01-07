@@ -123,6 +123,7 @@
     <ClCompile Include="FileRender.cpp" />
     <ClCompile Include="main.cpp" />
     <ClCompile Include="CodeMirrorManager.cpp" />
+    <ClCompile Include="NotFound.cpp" />
     <ClCompile Include="RESTBASE.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -336,6 +337,7 @@
   <ItemGroup>
     <ClInclude Include="FileRender.h" />
     <ClInclude Include="CodeMirrorManager.h" />
+    <ClInclude Include="NotFound.h" />
     <ClInclude Include="RESTBASE.h" />
   </ItemGroup>
   <ItemGroup>

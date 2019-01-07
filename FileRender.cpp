@@ -55,10 +55,6 @@ void FileRender::doCreate(HTTPServerRequest &req, HTTPServerResponse &resp) {
 	 printMessage(req, resp);
  }
 
- void FileRender::doDownload(HTTPServerRequest &req, HTTPServerResponse &resp) {
-	 resp.sendFile("Resources/resume_2019.pdf", "application/pdf");
- }
-
  void FileRender::printMessage(HTTPServerRequest &req, HTTPServerResponse &resp) {
 
 	 resp.setStatus(HTTPResponse::HTTP_OK);
@@ -73,18 +69,4 @@ void FileRender::doCreate(HTTPServerRequest &req, HTTPServerResponse &resp) {
 		 << "<p>Method: " << req.getMethod() << "</p>"
 		 << "<p>URI: " << req.getURI() << "</p>";
 	 out.flush();
-
  }
-
- void FileRender::printJson(HTTPServerRequest &req, HTTPServerResponse &resp) {
-
-	resp.setStatus(HTTPResponse::HTTP_OK);
-	resp.setContentType("application/json");
-	 
-	std::ostream& ostr = resp.send();
-
-	ostr << "Name" << ": I like pho";
-	ostr.flush();
-
- }
-

@@ -1,8 +1,6 @@
-/* Manages CodeMirror Resource Loading */
+#ifndef NOTFOUND
 
-#ifndef CODEMIRRORMANAGER
-
-#define CODEMIRRORMANAGER
+#define NOTFOUND
 
 #include <Poco/Net/HTTPServer.h>
 #include <Poco/Net/HTTPRequestHandler.h>
@@ -13,9 +11,11 @@
 
 using namespace Poco::Net;
 
-class CodeMirrorManager : public HTTPRequestHandler {
+class NotFound : public HTTPRequestHandler {
+
 public:
 	void handleRequest(HTTPServerRequest &req, HTTPServerResponse &resp);
+	void print404Response(HTTPServerRequest &req, HTTPServerResponse &resp);
 };
 
-#endif //CODEMIRRORMANAGER
+#endif //NOTFOUND

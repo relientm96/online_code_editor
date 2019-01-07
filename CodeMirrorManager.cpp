@@ -27,3 +27,4 @@ void CodeMirrorManager::handleRequest(HTTPServerRequest &req, HTTPServerResponse
 	}
 
 }
+
