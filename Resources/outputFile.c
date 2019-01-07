@@ -1,6 +1,8 @@
 #include <stdio.h>
-
-int main (int argc, char *argv[]) {
-  printf("Hello World");
+  
+int main(){
+  //Print Function
+  printf("You are Weird\n");
   return 0;
+  
 }

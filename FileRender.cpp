@@ -16,8 +16,6 @@ void FileRender::doCreate(HTTPServerRequest &req, HTTPServerResponse &resp) {
 	 i.read(buffer, req.getContentLength());
 	 buffer[len] = '\0';
 	 
-	 std::cout << buffer << std::endl;
-
 	 std::ofstream cFile;
 	 cFile.open("Resources/outputFile.c");
 	 cFile << buffer;
@@ -29,23 +27,25 @@ void FileRender::doCreate(HTTPServerRequest &req, HTTPServerResponse &resp) {
 	 std::vector<std::string> compileArgs;
 	 compileArgs.push_back("-Wall");
 	 compileArgs.push_back("-o");
-	 compileArgs.push_back("Resources/outputFile.exe");
+	 compileArgs.push_back("Resources/outputFile");
 	 compileArgs.push_back("Resources/outputFile.c");
 
-	 if (0 != Poco::Process::launch(gccPath, compileArgs).wait())
+	 if (0 != Poco::Process::launch(gccPath, compileArgs).wait()) {
 		 throw std::runtime_error("Error at GCC Compilation!");
+		 resp.sendFile("C:/Matthew Documents/MatthewHolidayProjects/PocoTest/PocoTest/Resources/error.txt", "text/plain");
+	 }
 
 	 std::cout << "Successful Compilation..." << std::endl;
 	 
-	 std::string outputFilePath("C:/Matthew Documents/MatthewHolidayProjects/PocoTest/PocoTest/Resources/outputFile.exe");
+	 std::string outputFilePath("C:/Matthew Documents/MatthewHolidayProjects/PocoTest/PocoTest/Resources/outputFile");
 	 std::vector<std::string> runArgs;
-	 runArgs.push_back("<");
+	 runArgs.push_back(">");
 	 runArgs.push_back("process.txt");
 
 	 if (0 != Poco::Process::launch(outputFilePath, runArgs).wait())
 		 throw std::runtime_error("Error Executing File!");
 
-	 std::cout << "Succesful Run..." << std::endl;
+	 std::cout << "Successful Run..." << std::endl;
 
 	 resp.sendFile("C:/Matthew Documents/MatthewHolidayProjects/PocoTest/PocoTest/Resources/process.txt", "text/plain");
 	 resp.setStatus(HTTPResponse::HTTP_OK);

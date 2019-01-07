@@ -12,7 +12,14 @@
 
 <body>
 
-  <textarea id="editor"></textarea>
+  <textarea id="editor">#include <stdio.h>
+  
+int main(){
+  //Print Function
+  printf("You are Weird\n");
+  return 0;
+  
+}</textarea>
 
   <script>
     var editor = CodeMirror.fromTextArea
@@ -23,6 +30,8 @@
       lineNumbers: true
     });
 
+    editor.setSize("550px", "700px");
+
     function compile() {
       var text = editor.getValue();
       const Http = new XMLHttpRequest();
@@ -32,8 +41,12 @@
       Http.setRequestHeader("Content-Type", "text/plain; charset=utf-8");
       Http.send(text);
 
+      var respText = Http.responseText;
+      alert(respText);
+
     }
 
+   
   </script>
 
   <button onclick="compile()">Compile</button>
