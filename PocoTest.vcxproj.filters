@@ -24,6 +24,9 @@
     <ClCompile Include="FileRender.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="CodeMirrorManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="PocoFoundationd.dll" />
@@ -238,6 +241,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FileRender.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="CodeMirrorManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

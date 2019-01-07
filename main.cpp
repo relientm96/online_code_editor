@@ -3,6 +3,7 @@
 #include <Poco/Util/ServerApplication.h>
 
 #include "FileRender.h"
+#include "CodeMirrorManager.h"
 
 using namespace Poco::Util;
 
@@ -11,7 +12,13 @@ class MyRequestHandlerFactory : public HTTPRequestHandlerFactory
 public:
 	virtual HTTPRequestHandler* createRequestHandler(const HTTPServerRequest & request)
 	{
-		return new FileRender;
+		//Handles CodeMirror resource requests
+		if (request.getURI().find("codemirror") != std::string::npos) {
+			return new CodeMirrorManager;
+		}
+		//Handles file compilation requests
+		else 
+			return new FileRender;
 	}
 };
 
