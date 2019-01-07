@@ -332,7 +332,6 @@
     <None Include="PocoUtild.dll" />
     <None Include="PocoXMLd.dll" />
     <None Include="Resources\testSketch.ino" />
-    <None Include="Resources\resume_2019.pdf" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileRender.h" />

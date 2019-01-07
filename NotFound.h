@@ -1,3 +1,5 @@
+/*Handles 404 Responses*/
+
 #ifndef NOTFOUND
 
 #define NOTFOUND

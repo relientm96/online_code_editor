@@ -1,3 +1,5 @@
+/*Base class for rest api class implementations*/
+
 #ifndef RESTBASE
 
 #define RESTBASE

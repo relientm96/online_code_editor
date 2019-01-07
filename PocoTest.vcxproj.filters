@@ -38,7 +38,6 @@
     <None Include="PocoXMLd.dll" />
     <None Include="PocoJSONd.dll" />
     <None Include="Resources\testSketch.ino" />
-    <None Include="Resources\resume_2019.pdf" />
     <None Include="codemirror\plugin\codemirror\README.md" />
     <None Include="codemirror\demo\activeline.html" />
     <None Include="codemirror\demo\anywordhint.html" />

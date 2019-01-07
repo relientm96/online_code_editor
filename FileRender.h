@@ -1,3 +1,5 @@
+/*Handles File Compilations*/
+
 #ifndef FILERENDER
 
 #define FILERENDER

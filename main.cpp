@@ -1,5 +1,4 @@
 #include <Poco/Net/ServerSocket.h>
-
 #include <Poco/Util/ServerApplication.h>
 
 #include "FileRender.h"

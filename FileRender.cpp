@@ -15,12 +15,13 @@ void FileRender::doCreate(HTTPServerRequest &req, HTTPServerResponse &resp) {
 	 char* buffer = new char[len + 1];
 	 i.read(buffer, req.getContentLength());
 	 buffer[len] = '\0';
-
+	 
 	 std::cout << buffer << std::endl;
 
 	 std::ofstream cFile;
 	 cFile.open("Resources/outputFile.c");
 	 cFile << buffer;
+	 cFile.close();
 
 	 std::cout << "gcc launched ..." << std::endl;
 	 std::string gccPath("C:/MinGW/bin/gcc.exe");
