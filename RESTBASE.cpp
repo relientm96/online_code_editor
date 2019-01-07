@@ -51,6 +51,10 @@ void restBaseClass::handleRequest(HTTPServerRequest &req, HTTPServerResponse &re
 		resp.sendFile("codemirror/mode/clike/clike.js", "application/javascript");
 	}
 
+	else if (req.getURI() == "/codemirror/addon/edit/closebrackets.js"){
+		resp.sendFile("codemirror/addon/edit/closebrackets.js", "application/javascript");
+	}
+
 	else { //404 Response
 		resp.setStatus(HTTPResponse::HTTP_NOT_FOUND);
 		print404Response(req, resp);

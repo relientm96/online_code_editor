@@ -1,9 +1,6 @@
 #include <Poco/Net/ServerSocket.h>
 
 #include <Poco/Util/ServerApplication.h>
-#include <iostream>
-#include <string>
-#include <vector>
 
 #include "FileRender.h"
 
@@ -12,7 +9,7 @@ using namespace Poco::Util;
 class MyRequestHandlerFactory : public HTTPRequestHandlerFactory
 {
 public:
-	virtual HTTPRequestHandler* createRequestHandler(const HTTPServerRequest &)
+	virtual HTTPRequestHandler* createRequestHandler(const HTTPServerRequest & request)
 	{
 		return new FileRender;
 	}

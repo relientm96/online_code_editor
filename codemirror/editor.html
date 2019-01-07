@@ -6,6 +6,7 @@
   <script type="text/javascript" src="codemirror/lib/codemirror.js"></script>
   <link rel="stylesheet" type="text/css" href="codemirror/lib/codemirror.css">
   <script type="text/javascript" src="codemirror/mode/clike/clike.js"></script>
+  <script type="text/javascript" src="codemirror/addon/edit/closebrackets.js"></script>
   <link href="codemirror/theme/dracula.css" rel="stylesheet" />
 </head>
 
@@ -18,9 +19,25 @@
     (document.getElementById('editor'), {
       mode: "clike",
       theme: "dracula",
+      autoCloseBrackets: true,
       lineNumbers: true
     });
+
+    function compile() {
+      var text = editor.getValue();
+      const Http = new XMLHttpRequest();
+      const Url = "http://teliosdesign.dynalias.com:7000";
+
+      Http.open("PUT", Url, true);
+      Http.setRequestHeader("Content-Type", "text/plain; charset=utf-8");
+      Http.send(text);
+
+      alert();
+    }
+
   </script>
+
+  <button onclick="compile()">Compile</button>
 
 </body>
 
