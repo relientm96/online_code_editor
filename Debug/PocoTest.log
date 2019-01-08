@@ -1,3 +1,2 @@
-﻿  FileRender.cpp
-c:\matthew documents\matthewholidayprojects\pocotest\pocotest\filerender.cpp(17): warning C4244: 'initializing': conversion from 'std::streamsize' to 'int', possible loss of data
+﻿  main.cpp
   PocoTest.vcxproj -> C:\Matthew Documents\MatthewHolidayProjects\PocoTest\Debug\PocoTest.exe

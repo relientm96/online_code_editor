@@ -2,7 +2,6 @@
 
 void FileRender::doCreate(HTTPServerRequest &req, HTTPServerResponse &resp) {
 	printMessage(req, resp);
-
 	resp.setStatus(HTTPResponse::HTTP_CREATED);
 }
 

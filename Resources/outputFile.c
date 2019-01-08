@@ -15,6 +15,6 @@ int main(){
   	printf("   Date      Time\n");
     strftime(buffer, 26, "%Y-%m-%d %H:%M:%S", tm_info);
     puts(buffer);
-	printf("haha\n");
+
     return 0;
 }

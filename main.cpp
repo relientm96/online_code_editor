@@ -20,6 +20,7 @@ public:
 		else if (request.getURI() == "/") {
 			return new FileRender;
 		}
+		//Cannot find specified resource from URL
 		else {
 			return new NotFound;
 		}
