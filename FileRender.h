@@ -18,10 +18,6 @@
 
 class FileRender : public restBaseClass {
 
-public:
-	FileRender();
-	~FileRender();
-
 private:
 
 	std::string projName;

@@ -1,13 +1,5 @@
 #include "FileRender.h"
 
-FileRender::FileRender() {
-	std::cout << "FileRender Created!!" << std::endl;
-}
-
-FileRender::~FileRender() {
-	std::cout << "FileRender Destroyed!!" << std::endl;
-}
-
 void FileRender::doCreate(HTTPServerRequest &req, HTTPServerResponse &resp) {
 	//Stream in project name to be created 
 	this->projName = streamRequestData(req, resp);
@@ -19,7 +11,10 @@ void FileRender::doCreate(HTTPServerRequest &req, HTTPServerResponse &resp) {
 }
 
  void FileRender::doRead(HTTPServerRequest &req, HTTPServerResponse &resp) {
+
+	 //Render code editor HTML file
 	 resp.sendFile("codemirror/editor.html", "text/html");
+
  }
 
  void FileRender::doUpdate(HTTPServerRequest &req, HTTPServerResponse &resp) {

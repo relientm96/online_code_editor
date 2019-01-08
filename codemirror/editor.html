@@ -36,7 +36,7 @@ int main(){
   </div>
 
   <div id="OutputArea">
-    <textarea id="output" rows="10" cols="70"></textarea>
+    <textarea readonly id="output" rows="10" cols="70"></textarea>
   </div>
 
   <script>
@@ -51,6 +51,7 @@ int main(){
     editor.setSize("513px", "400px");
 
     function compile() {
+
       var text = editor.getValue();
       const Http = new XMLHttpRequest();
 
