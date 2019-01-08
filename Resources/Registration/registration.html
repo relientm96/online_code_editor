@@ -1,0 +1,37 @@
+<HTML>
+<HEAD>
+<META NAME="GENERATOR" Content="Microsoft Visual Studio">
+
+<TITLE>Learning C!</TITLE>
+</HEAD>
+
+<BODY>
+
+    <h1> C Web Editor </h1>
+
+    <form>
+        Project name:<br>
+        <input id="projectname" type="text" name="firstname">
+        <br>
+    </form>
+
+    <script>
+        function sendName() {
+
+            var projName = document.getElementById('projectname').value;
+            const Http = new XMLHttpRequest();
+            const Url = "http://teliosdesign.dynalias.com:7000/app";
+
+            Http.open("GET", Url, true);
+            Http.setRequestHeader("Content-Type", "text/plain");
+            Http.send(projName);
+
+            document.location.replace('http://teliosdesign.dynalias.com:7000/app');
+        }
+    </script>
+
+    <button onclick="sendName()">Code Now!</button>
+
+</BODY>
+
+</HTML>

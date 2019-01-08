@@ -4,6 +4,8 @@
 #include "FileRender.h"
 #include "CodeMirrorManager.h"
 #include "NotFound.h"
+#include "RegistrationPage.h"
+#include "ResourceManager.h"
 
 using namespace Poco::Util;
 
@@ -12,17 +14,25 @@ class MyRequestHandlerFactory : public HTTPRequestHandlerFactory
 public:
 	virtual HTTPRequestHandler* createRequestHandler(const HTTPServerRequest & request)
 	{
-		//Handles CodeMirror resource requests
+		//Handles CodeMirror Resource Requests
 		if (request.getURI().find("codemirror") != std::string::npos) {
 			return new CodeMirrorManager;
 		}
-		//Handles file compilation requests
+		//Handles Resource Loading
+		else if (request.getURI().find("Resources") != std::string::npos) {
+			return new ResourceManager;
+		}
+		//Registration Page
 		else if (request.getURI() == "/") {
+			return new RegistrationPage;
+		}
+		//Main App
+		else if (request.getURI() == "/app") {
 			return new FileRender;
 		}
 		//Cannot find specified resource from URL
 		else {
-			return new NotFound;
+			return new NotFoundManager;
 		}
 	}
 };

@@ -124,6 +124,8 @@
     <ClCompile Include="main.cpp" />
     <ClCompile Include="CodeMirrorManager.cpp" />
     <ClCompile Include="NotFound.cpp" />
+    <ClCompile Include="RegistrationPage.cpp" />
+    <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="RESTBASE.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -331,12 +333,15 @@
     <None Include="PocoNetd.dll" />
     <None Include="PocoUtild.dll" />
     <None Include="PocoXMLd.dll" />
+    <None Include="Resources\Registration\registration.html" />
     <None Include="Resources\testSketch.ino" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="FileRender.h" />
     <ClInclude Include="CodeMirrorManager.h" />
     <ClInclude Include="NotFound.h" />
+    <ClInclude Include="RegistrationPage.h" />
+    <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="RESTBASE.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

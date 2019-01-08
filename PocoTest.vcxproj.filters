@@ -30,6 +30,12 @@
     <ClCompile Include="NotFound.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RegistrationPage.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ResourceManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="PocoFoundationd.dll" />
@@ -237,6 +243,7 @@
     <None Include="codemirror\editor.html" />
     <None Include="codemirror\mode\clike\clike.js" />
     <None Include="codemirror\mode\clike\test.js" />
+    <None Include="Resources\Registration\registration.html" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RESTBASE.h">
@@ -249,6 +256,12 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="NotFound.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="RegistrationPage.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="ResourceManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

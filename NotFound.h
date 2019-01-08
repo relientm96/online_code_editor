@@ -13,7 +13,7 @@
 
 using namespace Poco::Net;
 
-class NotFound : public HTTPRequestHandler {
+class NotFoundManager : public HTTPRequestHandler {
 
 public:
 	void handleRequest(HTTPServerRequest &req, HTTPServerResponse &resp);
