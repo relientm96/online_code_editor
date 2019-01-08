@@ -1,8 +1,20 @@
+/*Press Compile to see the result!*/
+
 #include <stdio.h>
+#include <time.h>
   
 int main(){
-  //Print Function
-  printf("You are Weird\n");
-  return 0;
-  
+
+    time_t timer;
+    char buffer[26];
+    struct tm* tm_info;
+
+    time(&timer);
+    tm_info = localtime(&timer);
+	
+  	printf("   Date      Time\n");
+    strftime(buffer, 26, "%Y-%m-%d %H:%M:%S", tm_info);
+    puts(buffer);
+	printf("haha\n");
+    return 0;
 }
