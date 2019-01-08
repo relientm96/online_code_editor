@@ -1,7 +1,20 @@
 #include "FileRender.h"
 
+FileRender::FileRender() {
+	std::cout << "FileRender Created!!" << std::endl;
+}
+
+FileRender::~FileRender() {
+	std::cout << "FileRender Destroyed!!" << std::endl;
+}
+
 void FileRender::doCreate(HTTPServerRequest &req, HTTPServerResponse &resp) {
-	printMessage(req, resp);
+	//Stream in project name to be created 
+	this->projName = streamRequestData(req, resp);
+
+	Poco::Path newProjPath(Poco::Path("Projects", this->projName));
+	Poco::File(newProjPath).createDirectories();
+
 	resp.setStatus(HTTPResponse::HTTP_CREATED);
 }
 
@@ -10,18 +23,25 @@ void FileRender::doCreate(HTTPServerRequest &req, HTTPServerResponse &resp) {
  }
 
  void FileRender::doUpdate(HTTPServerRequest &req, HTTPServerResponse &resp) {
-	 
-	 //Stream in C Code into buffer 
-	 std::istream &i = req.stream();
-	 int len = req.getContentLength();
-	 char* buffer = new char[len + 1];
-	 i.read(buffer, req.getContentLength());
-	 buffer[len] = '\0';
+
+	 //Obtaining Project name parameter from URI
+	 Poco::URI uri(req.getURI());
+	 Poco::URI::QueryParameters queryParams (uri.getQueryParameters());
+
+	 for (const std::pair <std::string, std::string> &param : queryParams) {
+		 std::cout << param.first << ":" << param.second << std::endl;
+		 if (param.first == "name") {
+			 this->projName = param.second;
+		 }
+	 }
+
+	 //Stream in code from CodeMirror Editor
+	 std::string code = streamRequestData(req, resp);
 	 
 	 //Stream Buffer into file
 	 std::ofstream cFile;
-	 cFile.open("Resources/outputFile.c");
-	 cFile << buffer;
+	 cFile.open("Projects/" + this->projName + "/outputFile.c");
+	 cFile << code;
 	 cFile.close();
 
 	 //Launch GCC for compilation
@@ -32,8 +52,8 @@ void FileRender::doCreate(HTTPServerRequest &req, HTTPServerResponse &resp) {
 	 std::vector<std::string> compileArgs;
 	 compileArgs.push_back("-Wall");
 	 compileArgs.push_back("-o");
-	 compileArgs.push_back("Resources/outputFile");
-	 compileArgs.push_back("Resources/outputFile.c");
+	 compileArgs.push_back("Projects/" + this->projName + "/outputFile");
+	 compileArgs.push_back("Projects/" + this->projName + "/outputFile.c");
 
 	 //Pipe in error stream 
 	 Poco::Pipe outError;
@@ -52,7 +72,7 @@ void FileRender::doCreate(HTTPServerRequest &req, HTTPServerResponse &resp) {
 			
 		 std::cout << "Successful Compilation..." << std::endl;
 
-		 std::string outputFilePath("C:/Matthew Documents/MatthewHolidayProjects/PocoTest/PocoTest/Resources/outputFile");
+		 std::string outputFilePath("Projects/" + this->projName + "/outputFile");
 		 std::vector<std::string> runArgs;
 		
 		 Poco::Pipe outPipe;
@@ -90,4 +110,13 @@ void FileRender::doCreate(HTTPServerRequest &req, HTTPServerResponse &resp) {
 		 << "<p>Method: " << req.getMethod() << "</p>"
 		 << "<p>URI: " << req.getURI() << "</p>";
 	 out.flush();
+ }
+
+ std::string FileRender::streamRequestData(HTTPServerRequest &req, HTTPServerResponse &resp) {
+	 std::istream &i = req.stream();
+	 int len = req.getContentLength();
+	 char* buffer = new char[len + 1];
+	 i.read(buffer, req.getContentLength());
+	 buffer[len] = '\0';
+	 return buffer;
  }
