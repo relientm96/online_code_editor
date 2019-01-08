@@ -27,7 +27,7 @@ public:
 			return new RegistrationPage;
 		}
 		//Main App
-		else if (request.getURI() == "/app") {
+		else if (request.getURI().find("app") != std::string::npos) {
 			return new FileRender;
 		}
 		//Cannot find specified resource from URL

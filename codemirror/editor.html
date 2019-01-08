@@ -53,7 +53,8 @@ int main(){
     function compile() {
       var text = editor.getValue();
       const Http = new XMLHttpRequest();
-      const Url = "http://teliosdesign.dynalias.com:7000/app";
+
+      const Url = window.location.href;
 
       Http.onreadystatechange = function () {
         if (this.readyState == 4) {
