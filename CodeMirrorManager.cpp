@@ -26,6 +26,14 @@ void CodeMirrorManager::handleRequest(HTTPServerRequest &req, HTTPServerResponse
 		resp.sendFile("codemirror/editor.css", "text/css");
 	}
 
+	else if (req.getURI() == "/codemirror/boostrap-4.2.1-dist/css/bootstrap.min.css") {
+		resp.sendFile("codemirror/boostrap-4.2.1-dist/css/bootstrap.min.css", "text/css");
+	}
+
+	else if (req.getURI() == "/codemirror/boostrap-4.2.1-dist/js/bootstrap.min.js") {
+		resp.sendFile("codemirror/boostrap-4.2.1-dist/js/bootstrap.min.js", "application/javascript");
+	}
+
 	else { //404 Response
 		resp.setStatus(HTTPResponse::HTTP_NOT_FOUND);
 	}

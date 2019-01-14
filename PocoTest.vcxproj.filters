@@ -247,6 +247,7 @@
     <None Include="codemirror\mode\clike\clike.js" />
     <None Include="codemirror\mode\clike\test.js" />
     <None Include="Resources\Registration\registration.html" />
+    <None Include="codemirror\editorOLD.htm" />
     <None Include="codemirror\editor.css" />
   </ItemGroup>
   <ItemGroup>

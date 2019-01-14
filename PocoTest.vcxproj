@@ -191,6 +191,9 @@
     <None Include="codemirror\doc\upgrade_v4.html" />
     <None Include="codemirror\editor.css" />
     <None Include="codemirror\editor.html" />
+    <None Include="codemirror\editorOLD.htm">
+      <DeploymentContent>true</DeploymentContent>
+    </None>
     <None Include="codemirror\index.html" />
     <None Include="codemirror\lib\codemirror.css" />
     <None Include="codemirror\lib\codemirror.js" />

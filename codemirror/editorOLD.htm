@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>C Playground</title>
+  <script type="text/javascript" src="codemirror/lib/codemirror.js"></script>
+  <link rel="stylesheet" type="text/css" href="codemirror/lib/codemirror.css">
+  <script type="text/javascript" src="codemirror/mode/clike/clike.js"></script>
+  <script type="text/javascript" src="codemirror/addon/edit/closebrackets.js"></script>
+  <link rel="stylesheet" type="text/css" href="codemirror/editor.css" />
+  <link href="codemirror/theme/dracula.css" rel="stylesheet" />
+
+</head>
+
+<body>
+
+  <div class="row">
+
+    <div id="EditingDiv">
+      <textarea id="editor">/*Press Compile to see the result!*/
+
+#include <stdio.h>
+#include <stdlib.h>
+
+int main(){
+  printf("Hello welcome to the C Playground!\n");
+  printf("Don't know where to start? Try the samples below!\n");
+  return 0;
+}
+
+</textarea>
+
+    </div>
+    <div id="OutputArea">
+      <textarea readonly id="output" rows="10" cols="70"></textarea>
+    </div>
+
+  </div>
+
+  <script>
+
+    var editor = CodeMirror.fromTextArea
+    (document.getElementById('editor'), {
+      mode: "clike",
+      theme: "dracula",
+      autoCloseBrackets: true,
+      lineNumbers: true
+    });
+
+    editor.setSize("513px", "400px");
+
+    function compile() {
+
+      var text = editor.getValue();
+      const Http = new XMLHttpRequest();
+
+      const Url = window.location.href;
+
+      Http.onreadystatechange = function () {
+        if (this.readyState == 4) {
+          document.getElementById("output").innerHTML =
+          this.responseText;
+        }
+      };
+
+      Http.open("PUT", Url, true);
+      Http.setRequestHeader("Content-Type", "text/plain");
+      Http.send(text);
+
+    }
+
+    function showTimeSample() {
+      const Http = new XMLHttpRequest();
+      const Url = "http://teliosdesign.dynalias.com:7000/Samples/time.c"
+      Http.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          editor.setValue(this.responseText);
+        }
+      };
+      Http.open("GET", Url, true);
+      Http.send();
+    }
+
+    function showAddSample() {
+      const Http = new XMLHttpRequest();
+      const Url = "http://teliosdesign.dynalias.com:7000/Samples/addTwoNumbers.c";
+      Http.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          editor.setValue(this.responseText);
+        }
+      };
+      Http.open("GET", Url, true);
+      Http.send();
+    }
+
+    function showTreeExample() {
+      const Http = new XMLHttpRequest();
+      const Url = "http://teliosdesign.dynalias.com:7000/Samples/drawTree.c";
+      Http.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          editor.setValue(this.responseText);
+        }
+      };
+      Http.open("GET", Url, true);
+      Http.send();
+    }
+
+  </script>
+
+  <div id=buttonCompile>
+    <button onclick="compile()">Compile</button>
+  </div>
+  <br />
+  <div id="treeSample">
+    <button onclick="showTreeExample()">Draw a Tree!</button>
+  </div>
+  <br />
+  <div id="timeSample">
+    <button onclick="showTimeSample()">What is the time?</button>
+  </div>
+  <br />
+  <div id="addNumbersSample">
+    <button onclick="showAddSample()">Add two numbers!</button>
+  </div>
+
+</body>
+
+</html>

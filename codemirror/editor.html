@@ -1,41 +1,104 @@
-<!DOCTYPE html>
-<html>
+<!doctype html>
+<html lang="en">
 
 <head>
+
   <title>C Playground</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
   <script type="text/javascript" src="codemirror/lib/codemirror.js"></script>
   <link rel="stylesheet" type="text/css" href="codemirror/lib/codemirror.css">
+  <link rel="stylesheet" type="text/css" href="codemirror/editor.css">
   <script type="text/javascript" src="codemirror/mode/clike/clike.js"></script>
   <script type="text/javascript" src="codemirror/addon/edit/closebrackets.js"></script>
-  <link rel="stylesheet" type="text/css" href="codemirror/editor.css" />
   <link href="codemirror/theme/dracula.css" rel="stylesheet" />
-  
+
+  <style>
+
+    body {
+      background: #3e789b;
+    }
+
+    header{
+      margin-top: 15px;
+    }
+
+    h1 {
+      color: #d8dff3;
+      margin-top: 15px;
+    }
+
+    .row-eq-height {
+      display: -webkit-box;
+      display: -webkit-flex;
+      display: -ms-flexbox;
+      display: flex;
+    }
+
+    #buttonCompile{
+      margin-top: 5px;
+    }
+
+    #output{
+      width: 100%;
+      resize: none;
+    }
+
+  </style>
+
 </head>
 
 <body>
 
-  <div class="row">
+  <h1 class="text-center">C Online Code Editor</h1>
 
-    <div id="EditingDiv">
-      <textarea id="editor">/*Press Compile to see the result!*/
+  <header>
+
+    <div class="row2">
+      <div class="col-sm-12">
+        <div class="text-center">
+          <button onclick="showNameExample()"> Print Your Name </button>
+          <button onclick="showTreeExample()">Draw a Tree!</button>
+          <button onclick="showTimeSample()">What is the time?</button>
+          <button onclick="showAddSample()">Add two numbers!</button>
+        </div>
+      </div>
+    </div>
+
+  </header>
+
+  <br />
+
+  <div class="container">
+    <div class="row-eq-height">
+      <div class="col-md-6">
+        <div id="EditingDiv">
+          <textarea id="editor" class="form-control">/*Press Compile to see the result!*/
 
 #include <stdio.h>
 #include <stdlib.h>
-  
-int main(){
-    printf("Hello welcome to the C Playground!");
-    return 0;
-}</textarea>
 
-    </div>
-    <div id="OutputArea">
-      <textarea readonly id="output" rows="10" cols="70"></textarea>
+int main(){
+  printf("Hello welcome to the C Playground!\n");
+  printf("Try the above samples!\n");
+  return 0;
+}
+
+          </textarea>
+        </div>
+        <div id=buttonCompile>
+          <button onclick="compile()">Compile</button>
+        </div>
+      </div>
+      <div class="col-md-6">
+        <div id="OutputArea">
+          <textarea readonly id="output"></textarea>
+        </div>
+      </div>
     </div>
 
   </div>
-
-<script>
-
+    
+  <script>
     var editor = CodeMirror.fromTextArea
     (document.getElementById('editor'), {
       mode: "clike",
@@ -44,7 +107,7 @@ int main(){
       lineNumbers: true
     });
 
-    editor.setSize("513px", "400px");
+    editor.setSize(null, "100%");
 
     function compile() {
 
@@ -57,6 +120,7 @@ int main(){
         if (this.readyState == 4) {
           document.getElementById("output").innerHTML =
           this.responseText;
+          document.getElementById("output").height = document.getElementById("editor").clientHeight;
         }
       };
 
@@ -102,23 +166,23 @@ int main(){
       Http.send();
     }
 
-    </script>
+    function showNameExample() {
+      const Http = new XMLHttpRequest();
+      const Url = "http://teliosdesign.dynalias.com:7000/Samples/printName.c";
+      Http.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          editor.setValue(this.responseText);
+        }
+      };
+      Http.open("GET", Url, true);
+      Http.send();
+    }
 
-    <div id=buttonCompile>
-      <button onclick="compile()">Compile</button>
-    </div>
-    <br />
-    <div id="treeSample">
-      <button onclick="showTreeExample()">Draw a Tree!</button>
-    </div>
-    <br />
-    <div id="timeSample">
-      <button onclick="showTimeSample()">What is the time?</button>
-    </div>
-    <br />
-    <div id="addNumbersSample">
-      <button onclick="showAddSample()">Add two numbers!</button>
-    </div>
+  </script>
+
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 </body>
 
