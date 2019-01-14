@@ -36,6 +36,9 @@
     <ClCompile Include="ResourceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="SamplesManager.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="PocoFoundationd.dll" />
@@ -244,6 +247,7 @@
     <None Include="codemirror\mode\clike\clike.js" />
     <None Include="codemirror\mode\clike\test.js" />
     <None Include="Resources\Registration\registration.html" />
+    <None Include="codemirror\editor.css" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RESTBASE.h">
@@ -262,6 +266,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="ResourceManager.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="SamplesManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

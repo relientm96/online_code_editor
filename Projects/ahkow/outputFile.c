@@ -1,10 +1,15 @@
-/*Press Compile to see the result!*/
-
 #include <stdio.h>
-#include <math.h>
-  
-int main(){
 
-	printf("%.10f ", pow(M_PI,3) );
-    return 0;
+int main(){
+  
+   //Print out the result
+   int array[5];
+  
+   for(int i = 0; i < 5 ; i++){
+     array[i] = i;
+     printf("i = %d\n", array[i]);
+   }
+  
+   return 0;
+  
 }

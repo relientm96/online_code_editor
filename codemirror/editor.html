@@ -7,39 +7,35 @@
   <link rel="stylesheet" type="text/css" href="codemirror/lib/codemirror.css">
   <script type="text/javascript" src="codemirror/mode/clike/clike.js"></script>
   <script type="text/javascript" src="codemirror/addon/edit/closebrackets.js"></script>
+  <link rel="stylesheet" type="text/css" href="codemirror/editor.css" />
   <link href="codemirror/theme/dracula.css" rel="stylesheet" />
+  
 </head>
 
 <body>
 
-  <div id= "EditingDiv">
-    <textarea id="editor">/*Press Compile to see the result!*/
+  <div class="row">
+
+    <div id="EditingDiv">
+      <textarea id="editor">/*Press Compile to see the result!*/
 
 #include <stdio.h>
-#include <time.h>
+#include <stdlib.h>
   
 int main(){
-
-    time_t timer;
-    char buffer[26];
-    struct tm* tm_info;
-
-    time(&timer);
-    tm_info = localtime(&timer);
-	
-  	printf("   Date      Time\n");
-    strftime(buffer, 26, "%Y-%m-%d %H:%M:%S", tm_info);
-    puts(buffer);
-
+    printf("Hello welcome to the C Playground!");
     return 0;
 }</textarea>
+
+    </div>
+    <div id="OutputArea">
+      <textarea readonly id="output" rows="10" cols="70"></textarea>
+    </div>
+
   </div>
 
-  <div id="OutputArea">
-    <textarea readonly id="output" rows="10" cols="70"></textarea>
-  </div>
+<script>
 
-  <script>
     var editor = CodeMirror.fromTextArea
     (document.getElementById('editor'), {
       mode: "clike",
@@ -69,12 +65,60 @@ int main(){
       Http.send(text);
 
     }
-   
-  </script>
 
-  <div id=buttonCompile>
-    <button onclick="compile()">Compile</button>
-  </div>
+    function showTimeSample() {
+      const Http = new XMLHttpRequest();
+      const Url = "http://teliosdesign.dynalias.com:7000/Samples/time.c"
+      Http.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          editor.setValue(this.responseText);
+        }
+      };
+      Http.open("GET", Url, true);
+      Http.send();
+    }
+
+    function showAddSample() {
+      const Http = new XMLHttpRequest();
+      const Url = "http://teliosdesign.dynalias.com:7000/Samples/addTwoNumbers.c";
+      Http.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          editor.setValue(this.responseText);
+        }
+      };
+      Http.open("GET", Url, true);
+      Http.send();
+    }
+
+    function showTreeExample() {
+      const Http = new XMLHttpRequest();
+      const Url = "http://teliosdesign.dynalias.com:7000/Samples/drawTree.c";
+      Http.onreadystatechange = function () {
+        if (this.readyState == 4 && this.status == 200) {
+          editor.setValue(this.responseText);
+        }
+      };
+      Http.open("GET", Url, true);
+      Http.send();
+    }
+
+    </script>
+
+    <div id=buttonCompile>
+      <button onclick="compile()">Compile</button>
+    </div>
+    <br />
+    <div id="treeSample">
+      <button onclick="showTreeExample()">Draw a Tree!</button>
+    </div>
+    <br />
+    <div id="timeSample">
+      <button onclick="showTimeSample()">What is the time?</button>
+    </div>
+    <br />
+    <div id="addNumbersSample">
+      <button onclick="showAddSample()">Add two numbers!</button>
+    </div>
 
 </body>
 

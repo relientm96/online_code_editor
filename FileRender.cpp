@@ -23,6 +23,7 @@ void FileRender::doCreate(HTTPServerRequest &req, HTTPServerResponse &resp) {
 	 Poco::URI uri(req.getURI());
 	 Poco::URI::QueryParameters queryParams (uri.getQueryParameters());
 
+	 //Get the project filename from url query string
 	 for (const std::pair <std::string, std::string> &param : queryParams) {
 		 std::cout << param.first << ":" << param.second << std::endl;
 		 if (param.first == "name") {
@@ -33,6 +34,19 @@ void FileRender::doCreate(HTTPServerRequest &req, HTTPServerResponse &resp) {
 	 //Stream in code from CodeMirror Editor
 	 std::string code = streamRequestData(req, resp);
 	 
+	 //Return permission denied code if user makes system call
+	 if (ifSystemCallFound(code)) {
+		 //Stream out permission denied in output box 
+		 resp.setStatus(HTTPResponse::HTTP_FORBIDDEN);
+		 resp.setContentType("text/html");
+		 std::ostream& out = resp.send();
+
+		 //Warn user for making system calls
+		 out << "Cannot make system calls!";
+		 out.flush();
+		 return;
+	 }
+
 	 //Stream Buffer into file
 	 std::ofstream cFile;
 	 cFile.open("Projects/" + this->projName + "/outputFile.c");
@@ -106,7 +120,8 @@ void FileRender::doCreate(HTTPServerRequest &req, HTTPServerResponse &resp) {
 		 << "<p>URI: " << req.getURI() << "</p>";
 	 out.flush();
  }
-
+ 
+//Reading request payload
  std::string FileRender::streamRequestData(HTTPServerRequest &req, HTTPServerResponse &resp) {
 	 std::istream &i = req.stream();
 	 int len = req.getContentLength();
@@ -114,4 +129,12 @@ void FileRender::doCreate(HTTPServerRequest &req, HTTPServerResponse &resp) {
 	 i.read(buffer, req.getContentLength());
 	 buffer[len] = '\0';
 	 return buffer;
+ }
+
+ //Search for "system" calls
+ bool FileRender::ifSystemCallFound(std::string inputCode ) {
+	 if (inputCode.find("system") != std::string::npos) {
+		 return true;
+	 }
+	 else return false;
  }

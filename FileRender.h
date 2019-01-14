@@ -30,6 +30,7 @@ private:
 	void printMessage(HTTPServerRequest &req, HTTPServerResponse &resp);
 
 	std::string streamRequestData(HTTPServerRequest &req, HTTPServerResponse &resp);
+	bool ifSystemCallFound(std::string inputCode);
 };
 
 #endif //FILERENDER

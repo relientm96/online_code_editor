@@ -22,6 +22,10 @@ void CodeMirrorManager::handleRequest(HTTPServerRequest &req, HTTPServerResponse
 		resp.sendFile("codemirror/addon/edit/closebrackets.js", "application/javascript");
 	}
 
+	else if (req.getURI() == "/codemirror/editor.css") {
+		resp.sendFile("codemirror/editor.css", "text/css");
+	}
+
 	else { //404 Response
 		resp.setStatus(HTTPResponse::HTTP_NOT_FOUND);
 	}

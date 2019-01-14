@@ -127,6 +127,7 @@
     <ClCompile Include="RegistrationPage.cpp" />
     <ClCompile Include="ResourceManager.cpp" />
     <ClCompile Include="RESTBASE.cpp" />
+    <ClCompile Include="SamplesManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="codemirror\.editorconfig" />
@@ -188,6 +189,7 @@
     <None Include="codemirror\doc\upgrade_v2.2.html" />
     <None Include="codemirror\doc\upgrade_v3.html" />
     <None Include="codemirror\doc\upgrade_v4.html" />
+    <None Include="codemirror\editor.css" />
     <None Include="codemirror\editor.html" />
     <None Include="codemirror\index.html" />
     <None Include="codemirror\lib\codemirror.css" />
@@ -343,6 +345,7 @@
     <ClInclude Include="RegistrationPage.h" />
     <ClInclude Include="ResourceManager.h" />
     <ClInclude Include="RESTBASE.h" />
+    <ClInclude Include="SamplesManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

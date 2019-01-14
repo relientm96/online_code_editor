@@ -6,6 +6,7 @@
 #include "NotFound.h"
 #include "RegistrationPage.h"
 #include "ResourceManager.h"
+#include "SamplesManager.h"
 
 using namespace Poco::Util;
 
@@ -25,6 +26,10 @@ public:
 		//Registration Page
 		else if (request.getURI() == "/") {
 			return new RegistrationPage;
+		}
+		//Load Samples
+		else if (request.getURI().find("Samples") != std::string::npos) {
+			return new SamplesManager;
 		}
 		//Main App
 		else if (request.getURI().find("app") != std::string::npos) {
