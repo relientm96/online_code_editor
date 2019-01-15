@@ -14,12 +14,15 @@
 
   <style>
 
-    body {
-      background: #3e789b;
+    html, body {
+      height: 100%;
     }
 
-    header{
-      margin-top: 15px;
+    body {
+      background-image: url("Resources/mainpage.jpg");
+      background-position: center; 
+      background-repeat: repeat; 
+      background-size: cover; 
     }
 
     h1 {
@@ -27,20 +30,43 @@
       margin-top: 15px;
     }
 
-    .row-eq-height {
-      display: -webkit-box;
-      display: -webkit-flex;
-      display: -ms-flexbox;
+    .row {
       display: flex;
+      width: 100%;
     }
 
-    #buttonCompile{
-      margin-top: 5px;
+    .btn-toolbar{
+      padding-top : 4px;
     }
 
-    #output{
+    .col-md-6 {
+      flex: 1;
+      padding: 16px;
+    }
+
+    #compileButton {
+      margin-right: 2px;
+    }
+
+    #toTopButton {
+      margin-left: 2px;
+    }
+
+    #topButtons {
+      padding-bottom: 1px;
+    }
+
+    #output {
       width: 100%;
       resize: none;
+    }
+
+    #leftCodeEditor {
+      padding-right: 3px;
+    }
+
+    #rightTextOutput {
+      padding-left: 3px;
     }
 
   </style>
@@ -49,30 +75,39 @@
 
 <body>
 
-  <h1 class="text-center">C Online Code Editor</h1>
+  <div class="bgimage"> </div>
 
-  <header>
+  <div class="content">
 
-    <div class="row2">
-      <div class="col-sm-12">
-        <div class="text-center">
-          <button onclick="showNameExample()"> Print Your Name </button>
-          <button onclick="showTreeExample()">Draw a Tree!</button>
-          <button onclick="showTimeSample()">What is the time?</button>
-          <button onclick="showAddSample()">Add two numbers!</button>
-        </div>
+    <h1 class="text-center">Online C Code Editor</h1>
+
+    <div id="topButtons">
+      <div class="text-center">
+
+        <button onclick="showNameExample()"> Print Your Name </button>
+        <button onclick="showTreeExample()">Draw a Tree!</button>
+        <button onclick="showTimeSample()">What is the time?</button>
+        <button onclick="showAddSample()">Add two numbers!</button>
+
       </div>
+
     </div>
 
-  </header>
+    <div class="container twoColumnStuff">
 
-  <br />
+      <div class="row">
 
-  <div class="container">
-    <div class="row-eq-height">
-      <div class="col-md-6">
-        <div id="EditingDiv">
-          <textarea id="editor" class="form-control">/*Press Compile to see the result!*/
+        <div class="col-md-6" id="leftCodeEditor">
+
+          <div id="EditingDiv">
+
+            <textarea id="editor" class="form-control">/*********************Online C Compiler*********************
+
+           		Write your code in this editor
+            	Press Compile to run your code
+            Not sure what to do? Run the above samples!
+
+***********************************************************/
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -83,22 +118,33 @@ int main(){
   return 0;
 }
 
-          </textarea>
-        </div>
-        <div id=buttonCompile>
-          <button onclick="compile()">Compile</button>
-        </div>
-      </div>
-      <div class="col-md-6">
-        <div id="OutputArea">
-          <textarea readonly id="output"></textarea>
-        </div>
-      </div>
-    </div>
+          
 
+          </textarea>
+          </div>
+
+          <div class="btn-toolbar" id="bottomButtons">
+            <button type="button" id="compileButton" onclick="compile()">Compile</button>
+            <button type="button" id="clearButton" onclick="clearOutput()">Clear Output</button>
+            <button type="button" id="toTopButton" onclick="toTop()">Back to Top</button>
+          </div>
+
+        </div>
+
+        <div class="col-md-6" id="rightTextOutput">
+          <div id="OutputArea">
+            <textarea readonly id="output"></textarea>
+          </div>
+        </div>
+
+      </div>
+
+    </div>
   </div>
-    
+
   <script>
+
+    //CodeMirror editor properties
     var editor = CodeMirror.fromTextArea
     (document.getElementById('editor'), {
       mode: "clike",
@@ -107,8 +153,22 @@ int main(){
       lineNumbers: true
     });
 
+    //Size of codemirror editor
     editor.setSize(null, "100%");
 
+    function clearOutput(){
+      document.getElementById("output").innerHTML = "";
+      toTop();
+      return false;
+    }
+
+    //Scrolls back to top when button clicked
+    function toTop() {
+      document.body.scrollTop = 0; //Safari
+      document.documentElement.scrollTop = 0;//Chrome,Firefox, IE and Opera
+    }
+
+    //Compile the C-Code and perform a PUT request to server
     function compile() {
 
       var text = editor.getValue();
@@ -120,7 +180,13 @@ int main(){
         if (this.readyState == 4) {
           document.getElementById("output").innerHTML =
           this.responseText;
-          document.getElementById("output").height = document.getElementById("editor").clientHeight;
+
+          //Adjust height of output text area according to response's number of newline characters
+          document.getElementById("output").rows = this.responseText.split(/\r\n|\r|\n/).length;
+
+          document.body.scrollTop = 0; //Safari
+          document.documentElement.scrollTop = 0;//Chrome,Firefox, IE and Opera
+
         }
       };
 
@@ -130,6 +196,7 @@ int main(){
 
     }
 
+    //GET the time sample
     function showTimeSample() {
       const Http = new XMLHttpRequest();
       const Url = "http://teliosdesign.dynalias.com:7000/Samples/time.c"
@@ -142,6 +209,7 @@ int main(){
       Http.send();
     }
 
+    //GET the add sample
     function showAddSample() {
       const Http = new XMLHttpRequest();
       const Url = "http://teliosdesign.dynalias.com:7000/Samples/addTwoNumbers.c";
@@ -154,6 +222,7 @@ int main(){
       Http.send();
     }
 
+    //GET the tree sample
     function showTreeExample() {
       const Http = new XMLHttpRequest();
       const Url = "http://teliosdesign.dynalias.com:7000/Samples/drawTree.c";
@@ -166,6 +235,7 @@ int main(){
       Http.send();
     }
 
+    //GET the name sample
     function showNameExample() {
       const Http = new XMLHttpRequest();
       const Url = "http://teliosdesign.dynalias.com:7000/Samples/printName.c";

@@ -4,9 +4,9 @@
 #include <stdlib.h>
 
 int main(){
-  //Enter your name here
+  //Enter your name between the angle brackets
   char* name = "<Your Name>";
-  printf("Welcome %s",name);
+  printf("Welcome %s\n",name);
   return 0;
 }
 

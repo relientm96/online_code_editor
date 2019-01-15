@@ -1,14 +1,22 @@
 // C program to print a  Christmas tree 
-//Credits to GeeksForGeeks 
-
+// It is recommended is try it with a desktop  
+// compiler like CodeBlocks. 
 #include <stdio.h> 
 #include <stdlib.h> 
 #include <time.h> 
- 
-//Alter frequency of decorations here,
-#define randomness 10 //higher means less decorations
-
-//Print each leaf on the tree
+#include <unistd.h> 
+  
+#define RefRate 40000 
+#define randomness 5 // high means less random 
+  
+// Clear the shell 
+void clrscr() 
+{ 
+    system("@cls||clear"); 
+} 
+  
+// Print a random character giving preference  
+// to * 
 void printRandLeaf() 
 { 
     char leaftypes[5] = { '.', '*', '+', 'o', 'O' }; 
@@ -20,7 +28,7 @@ void printRandLeaf()
     else
         printf("%c ", leaftypes[1]); 
 } 
-
+  
 void triangle(int f, int n, int toth) 
 { 
     int i, j, k = 2 * toth - 2; 
@@ -81,9 +89,17 @@ int main()
 { 
     srand(time(NULL)); 
     int ht = 6; 
-    
-    printTree(ht); 
-    printLog(ht); 
+  
+    printf("\n*********MERRY CHRISTMAS*********\n\n"); 
+  
+    // refresh loop 
+    while (1) { 
+        clrscr(); 
+        printTree(ht); 
+  
+        printLog(ht); 
+        usleep(RefRate); 
+    } 
   
     return 0; 
 } 

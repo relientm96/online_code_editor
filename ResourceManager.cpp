@@ -10,6 +10,14 @@ void ResourceManager::doRead(HTTPServerRequest &req, HTTPServerResponse &resp) {
 		resp.sendFile("Resources/Registration/registration.html" , "text/html");
 	}
 
+	else if (req.getURI() == "/Resources/background.jpg") {
+		resp.sendFile("Resources/background.jpg", "image/jpeg");
+	}
+
+	else if (req.getURI() == "/Resources/mainpage.jpg") {
+		resp.sendFile("Resources/mainpage.jpg", "image/jpeg");
+	}
+
 }
 
 void ResourceManager::doUpdate(HTTPServerRequest &req, HTTPServerResponse &resp) {

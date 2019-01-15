@@ -1,15 +1,23 @@
-#include <stdio.h>
+/*Press compile to see what the time is on the server!*/
+//This uses the time library
 
+#include <stdio.h>
+#include <stdlib.h>
+#include <time.h>
+  
 int main(){
-  
-   //Print out the result
-   int array[5];
-  
-   for(int i = 0; i < 5 ; i++){
-     array[i] = i;
-     printf("i = %d\n", array[i]);
-   }
-  
-   return 0;
+
+    time_t timer;
+    char buffer[26];
+    struct tm* tm_info;
+
+    time(&timer);
+    tm_info = localtime(&timer);
+	
+    printf("   Date      Time\n");
+    strftime(buffer, 26, "%Y-%m-%d %H:%M:%S", tm_info);
+    puts(buffer);
+
+    return 0;
   
 }

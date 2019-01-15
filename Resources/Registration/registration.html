@@ -1,38 +1,138 @@
 <HTML>
 <HEAD>
-<META NAME="GENERATOR" Content="Microsoft Visual Studio">
 
-<TITLE>Learning C!</TITLE>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+    <style>
+
+        body, html{
+            height: 100%;
+        }
+
+        .bgimage {
+            background-image: url("Resources/background.jpg");
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            filter: blur(5px);
+            -webkit-filter: blur(5px);
+            height: 100%;
+            width: 100%;
+        }
+
+        h1{
+            text-align: center;
+        }
+
+        .card-container{
+            max-width: 600px;
+            padding: 40px 40px;
+        }
+
+        .card {
+            background-color: #F7F7F7;
+            padding: 20px 25px 30px;
+            margin: 0 auto 25px;
+            margin-top: 50px;
+            -moz-border-radius: 2px;
+            -webkit-border-radius: 2px;
+            border-radius: 2px;
+            -moz-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            -webkit-box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+            box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
+
+            position: absolute;
+            top: 30%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 2;
+            width: 80%;
+            padding: 20px;
+            text-align: center;
+        }
+
+        #projecthelp {
+            color: #d8dff3;
+        }
+
+    </style>
+
+
+
+    <TITLE>Learning C!</TITLE>
+
 </HEAD>
 
 <BODY>
 
-    <h1> C Web Editor </h1>
+    <div class="bgimage"> </div>
 
-    <form>
-        Project name:<br>
-        <input id="projectname" type="text">
-        <br>
-    </form>
+        <div class="container">
 
-    <p> *Note, do not press enter, click on the button instead</p>
+            <div class="card card-container">
+
+                <h1>C Code Editor</h1>
+
+                <form id="formid" onkeypress="return event.keyCode != 13;">
+                    <div class="form-group">
+                        <input id="inputProjectName" type="text" class="form-control" placeholder="Enter project name" onsubmit="sendName()">
+                        <small id="projecthelp" class="form-text text-muted">Enter your project file name and code away!</small>
+                    </div>
+                </form>
+
+                <button id="codeNowButton" onclick="sendName()">Code Now!</button>
+
+            </div>
+
+        </div>
+
+
+    
 
     <script>
-        function sendName() {
-            var projName = document.getElementById('projectname').value;
-            const Http = new XMLHttpRequest();
-            const Url = 'http://teliosdesign.dynalias.com:7000/app?name=' + projName;
 
-            Http.open("POST", Url, true);
-            Http.setRequestHeader("Content-Type", "text/plain");
-            Http.setRequestHeader("Name", projName);
-            Http.send(projName);
+            var input = document.getElementById("inputProjectName");
+            input.addEventListener("keyup", function (event) {
+                event.preventDefault();
+                if (event.keyCode === 13) {
+                    document.getElementById("codeNowButton").click();
+                }
+            });
 
-            document.location.replace('http://teliosdesign.dynalias.com:7000/app?name=' + projName);
-        }
+            function sendName() {
+
+                var projName = document.getElementById('inputProjectName').value;
+
+                //Only process request if field is non empty
+                if ((projName != "") && (/\S/.test(projName))) {
+
+                    //Create a post request to server
+                    const Http = new XMLHttpRequest();
+                    const Url = 'http://teliosdesign.dynalias.com:7000/app?name=' + projName;
+
+                    Http.open("POST", Url, true);
+                    Http.setRequestHeader("Content-Type", "text/plain");
+                    Http.setRequestHeader("Name", projName);
+                    Http.send(projName);
+
+                    //Send user to code editor
+                    document.location.assign('http://teliosdesign.dynalias.com:7000/app?name=' + projName);
+                }
+
+                //Only White space or empty text input value
+                else {
+                    alert("Cannot input empty name!");
+                }
+
+            }
+
     </script>
 
-    <button onclick="sendName()">Code Now!</button>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js" integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js" integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k" crossorigin="anonymous"></script>
 
 </BODY>
 
