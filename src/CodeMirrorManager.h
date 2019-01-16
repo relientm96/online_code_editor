@@ -1,4 +1,4 @@
-/* Manages CodeMirror Resource Loading */
+/* Manages CodeMirror Resource Loading from Resource folder*/
 
 #ifndef CODEMIRRORMANAGER
 
