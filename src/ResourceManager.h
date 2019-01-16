@@ -1,3 +1,5 @@
+/*Manage Resources loading from Resouces directory*/
+
 #ifndef RESOURCEMANAGER
 
 #define RESOURCEMANAGER

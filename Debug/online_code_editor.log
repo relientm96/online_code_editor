@@ -1,3 +1,0 @@
-﻿  FileRender.cpp
-c:\matthew documents\matthewholidayprojects\online_code_editor\online_code_editor\src\filerender.cpp(120): warning C4244: 'initializing': conversion from 'std::streamsize' to 'int', possible loss of data
-  online_code_editor.vcxproj -> C:\Matthew Documents\MatthewHolidayProjects\online_code_editor\online_code_editor\online_code_editor.exe

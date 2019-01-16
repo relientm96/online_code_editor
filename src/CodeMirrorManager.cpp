@@ -2,6 +2,8 @@
 
 void CodeMirrorManager::handleRequest(HTTPServerRequest &req, HTTPServerResponse &resp) {
 
+	//Return files according to URL request
+	
 	if (req.getURI() == "/codemirror/lib/codemirror.js") {
 		resp.sendFile("codemirror/lib/codemirror.js", "application/javascript");
 	}

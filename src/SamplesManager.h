@@ -1,4 +1,4 @@
-/* Manages CodeMirror Resource Loading */
+/* Manages Samples loading */
 
 #ifndef SAMPLESMANAGER
 

@@ -4,6 +4,12 @@
 #Ignoring Projects Folder
 Projects/
 
+ #Ignoring Debug folder
+Debug/
+
+#Ignore object files
+*.obj
+
 # User-specific files
 *.suo
 *.user
