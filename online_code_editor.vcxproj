@@ -340,7 +340,6 @@
     <None Include="PocoNetd.dll" />
     <None Include="PocoUtild.dll" />
     <None Include="PocoXMLd.dll" />
-    <None Include="README.md" />
     <None Include="Resources\Registration\registration.html" />
     <None Include="Resources\testSketch.ino" />
   </ItemGroup>
