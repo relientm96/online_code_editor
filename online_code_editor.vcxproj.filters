@@ -15,28 +15,28 @@
     </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="main.cpp">
+    <ClCompile Include="src\CodeMirrorManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RESTBASE.cpp">
+    <ClCompile Include="src\FileRender.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="FileRender.cpp">
+    <ClCompile Include="src\main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="CodeMirrorManager.cpp">
+    <ClCompile Include="src\NotFound.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="NotFound.cpp">
+    <ClCompile Include="src\RegistrationPage.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="RegistrationPage.cpp">
+    <ClCompile Include="src\ResourceManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="ResourceManager.cpp">
+    <ClCompile Include="src\RESTBASE.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="SamplesManager.cpp">
+    <ClCompile Include="src\SamplesManager.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
@@ -251,25 +251,25 @@
     <None Include="codemirror\editor.css" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="RESTBASE.h">
+    <ClInclude Include="src\CodeMirrorManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="FileRender.h">
+    <ClInclude Include="src\FileRender.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="CodeMirrorManager.h">
+    <ClInclude Include="src\NotFound.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="NotFound.h">
+    <ClInclude Include="src\RegistrationPage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="RegistrationPage.h">
+    <ClInclude Include="src\ResourceManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="ResourceManager.h">
+    <ClInclude Include="src\RESTBASE.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="SamplesManager.h">
+    <ClInclude Include="src\SamplesManager.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

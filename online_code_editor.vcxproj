@@ -122,14 +122,14 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="FileRender.cpp" />
-    <ClCompile Include="main.cpp" />
-    <ClCompile Include="CodeMirrorManager.cpp" />
-    <ClCompile Include="NotFound.cpp" />
-    <ClCompile Include="RegistrationPage.cpp" />
-    <ClCompile Include="ResourceManager.cpp" />
-    <ClCompile Include="RESTBASE.cpp" />
-    <ClCompile Include="SamplesManager.cpp" />
+    <ClCompile Include="src\FileRender.cpp" />
+    <ClCompile Include="src\main.cpp" />
+    <ClCompile Include="src\CodeMirrorManager.cpp" />
+    <ClCompile Include="src\NotFound.cpp" />
+    <ClCompile Include="src\RegistrationPage.cpp" />
+    <ClCompile Include="src\ResourceManager.cpp" />
+    <ClCompile Include="src\RESTBASE.cpp" />
+    <ClCompile Include="src\SamplesManager.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="codemirror\.editorconfig" />
@@ -344,13 +344,13 @@
     <None Include="Resources\testSketch.ino" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="FileRender.h" />
-    <ClInclude Include="CodeMirrorManager.h" />
-    <ClInclude Include="NotFound.h" />
-    <ClInclude Include="RegistrationPage.h" />
-    <ClInclude Include="ResourceManager.h" />
-    <ClInclude Include="RESTBASE.h" />
-    <ClInclude Include="SamplesManager.h" />
+    <ClInclude Include="src\FileRender.h" />
+    <ClInclude Include="src\CodeMirrorManager.h" />
+    <ClInclude Include="src\NotFound.h" />
+    <ClInclude Include="src\RegistrationPage.h" />
+    <ClInclude Include="src\ResourceManager.h" />
+    <ClInclude Include="src\RESTBASE.h" />
+    <ClInclude Include="src\SamplesManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
