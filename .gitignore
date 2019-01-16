@@ -4,7 +4,7 @@
 #Ignoring Projects Folder
 Projects/
 
-#Ignoring Debug folder
+ #Ignoring Debug folder
 Debug/
 
 #Ignore object files
