@@ -1,4 +1,4 @@
-/*Handles 404 Responses*/
+/*Return 404 Response for invalid URLs*/
 
 #ifndef NOTFOUND
 
