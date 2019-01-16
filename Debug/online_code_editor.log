@@ -1,12 +1,3 @@
-﻿C:\Program Files (x86)\Microsoft Visual Studio\2017\Community\Common7\IDE\VC\VCTargets\Microsoft.CppBuild.targets(391,5): warning MSB8028: The intermediate directory (Debug\) contains files shared from another project (PocoTest.vcxproj).  This can lead to incorrect clean and rebuild behavior.
-  FileRender.cpp
-c:\matthew documents\matthewholidayprojects\online_code_editor\online_code_editor\filerender.cpp(127): warning C4244: 'initializing': conversion from 'std::streamsize' to 'int', possible loss of data
-  main.cpp
-  CodeMirrorManager.cpp
-  NotFound.cpp
-  RegistrationPage.cpp
-  ResourceManager.cpp
-  RESTBASE.cpp
-  SamplesManager.cpp
-  Generating Code...
+﻿  FileRender.cpp
+c:\matthew documents\matthewholidayprojects\online_code_editor\online_code_editor\src\filerender.cpp(120): warning C4244: 'initializing': conversion from 'std::streamsize' to 'int', possible loss of data
   online_code_editor.vcxproj -> C:\Matthew Documents\MatthewHolidayProjects\online_code_editor\online_code_editor\online_code_editor.exe

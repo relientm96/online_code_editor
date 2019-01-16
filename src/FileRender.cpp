@@ -25,7 +25,6 @@ void FileRender::doCreate(HTTPServerRequest &req, HTTPServerResponse &resp) {
 
 	 //Get the project filename from url query string
 	 for (const std::pair <std::string, std::string> &param : queryParams) {
-		 std::cout << param.first << ":" << param.second << std::endl;
 		 if (param.first == "name") {
 			 this->projName = param.second;
 		 }
@@ -54,7 +53,6 @@ void FileRender::doCreate(HTTPServerRequest &req, HTTPServerResponse &resp) {
 	 cFile.close();
 
 	 //Launch GCC for compilation
-	 std::cout << "gcc launched ..." << std::endl;
 	 std::string gccPath("C:/MinGW/bin/gcc.exe");
 	 
 	 //Create argument list for compilation
@@ -69,7 +67,6 @@ void FileRender::doCreate(HTTPServerRequest &req, HTTPServerResponse &resp) {
 
 	 if (0 != Poco::Process::launch(gccPath, compileArgs, 0 , 0, &outError).wait()) {
 		 //Stream out errors produced from gcc
-		 std::cout << "ERROR" << std::endl;
 		 std::ostream& errorResponse = resp.send();
 		 Poco::PipeInputStream istr(outError);
 		 Poco::StreamCopier::copyStream(istr, errorResponse);
@@ -79,8 +76,6 @@ void FileRender::doCreate(HTTPServerRequest &req, HTTPServerResponse &resp) {
 	 //Succesful compilation, execute compiled file
 	 else {
 			
-		 std::cout << "Successful Compilation..." << std::endl;
-
 		 std::string outputFilePath("Projects/" + this->projName + "/outputFile");
 		 std::vector<std::string> runArgs;
 		
@@ -88,8 +83,6 @@ void FileRender::doCreate(HTTPServerRequest &req, HTTPServerResponse &resp) {
 
 		 if (0 != Poco::Process::launch(outputFilePath, runArgs, 0, &outPipe, 0).wait())
 			 throw std::runtime_error("Error Executing File!");
-
-		 std::cout << "Successful Run..." << std::endl;
 
 		 //Return compiled file response to response body
 		 std::ostream& out = resp.send();
