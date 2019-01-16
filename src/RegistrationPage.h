@@ -1,3 +1,5 @@
+/*Manages registration page resources located in Registration Resources folder*/
+
 #ifndef REGISTRATIONPAGE
 
 #define REGISTRATIONPAGE
