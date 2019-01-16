@@ -249,6 +249,7 @@
     <None Include="Resources\Registration\registration.html" />
     <None Include="codemirror\editorOLD.htm" />
     <None Include="codemirror\editor.css" />
+    <None Include="README.md" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="RESTBASE.h">
