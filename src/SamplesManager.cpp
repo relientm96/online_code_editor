@@ -12,7 +12,6 @@ void SamplesManager::handleRequest(HTTPServerRequest &req, HTTPServerResponse &r
 			resp.setContentType("text/plain");
 
 			std::ostream& out = resp.send();
-
 			out << content;
 			out.flush();
 
@@ -27,7 +26,6 @@ void SamplesManager::handleRequest(HTTPServerRequest &req, HTTPServerResponse &r
 			resp.setContentType("text/plain");
 
 			std::ostream& out = resp.send();
-
 			out << content;
 			out.flush();
 
@@ -42,7 +40,6 @@ void SamplesManager::handleRequest(HTTPServerRequest &req, HTTPServerResponse &r
 			resp.setContentType("text/plain");
 
 			std::ostream& out = resp.send();
-
 			out << content;
 			out.flush();
 
