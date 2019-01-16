@@ -1,4 +1,4 @@
-/*Handles File Compilations*/
+/*Handles HTTP Requests made by code editing application*/
 
 #ifndef FILERENDER
 

@@ -11,10 +11,8 @@ void FileRender::doCreate(HTTPServerRequest &req, HTTPServerResponse &resp) {
 }
 
  void FileRender::doRead(HTTPServerRequest &req, HTTPServerResponse &resp) {
-
 	 //Render code editor HTML file
 	 resp.sendFile("codemirror/editor.html", "text/html");
-
  }
 
  void FileRender::doUpdate(HTTPServerRequest &req, HTTPServerResponse &resp) {
@@ -95,6 +93,7 @@ void FileRender::doCreate(HTTPServerRequest &req, HTTPServerResponse &resp) {
  }
 
  void FileRender::doDelete(HTTPServerRequest &req, HTTPServerResponse &resp) {
+	 //Test function here to test delete request
 	 printMessage(req, resp);
  }
 
