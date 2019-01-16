@@ -1,12 +1,11 @@
-﻿  CodeMirrorManager.cpp
-  FileRender.cpp
+﻿  FileRender.cpp
 c:\matthew documents\matthewholidayprojects\online_code_editor\online_code_editor\src\filerender.cpp(119): warning C4244: 'initializing': conversion from 'std::streamsize' to 'int', possible loss of data
+  main.cpp
+  CodeMirrorManager.cpp
   NotFound.cpp
-  RESTBASE.cpp
   RegistrationPage.cpp
   ResourceManager.cpp
+  RESTBASE.cpp
   SamplesManager.cpp
-  main.cpp
   Generating Code...
-  LINK : C:\Matthew Documents\MatthewHolidayProjects\online_code_editor\online_code_editor\online_code_editor.exe not found or not built by the last incremental link; performing full link
   online_code_editor.vcxproj -> C:\Matthew Documents\MatthewHolidayProjects\online_code_editor\online_code_editor\online_code_editor.exe
