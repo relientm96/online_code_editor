@@ -14,4 +14,4 @@ Main Editor
 
 Registration page
 
-![alt text](image/registrationPage.JPG)
+![alt text](images/registrationPage.JPG)
