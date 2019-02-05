@@ -6,6 +6,7 @@ Uses:
 
 - C++ and POCO Libraries on server side.
 - CodeMirror embedded for online code editing.
+- HTML, CSS and Javscript with bootstrap for front end formatting and layout.
 - GCC for C Compilation.
 
 Main Editor
