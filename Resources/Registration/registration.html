@@ -75,7 +75,7 @@
 
                 <h1>C Code Editor</h1>
 
-                <form id="formid" onkeypress="return event.keyCode != 13;">
+                <form id="formid">
                     <div class="form-group">
                         <input id="inputProjectName" type="text" class="form-control" placeholder="Enter project name" onsubmit="sendName()">
                         <small id="projecthelp" class="form-text text-muted">Enter your project file name and code away!</small>
@@ -110,7 +110,7 @@
 
                     //Create a post request to server
                     const Http = new XMLHttpRequest();
-                    const Url = 'http://teliosdesign.dynalias.com:7000/app?name=' + projName;
+                    const Url = 'http://localhost:7000/app?name=' + projName;
 
                     Http.open("POST", Url, true);
                     Http.setRequestHeader("Content-Type", "text/plain");
@@ -118,7 +118,7 @@
                     Http.send(projName);
 
                     //Send user to code editor
-                    document.location.assign('http://teliosdesign.dynalias.com:7000/app?name=' + projName);
+                    document.location.assign('http://localhost:7000/app?name=' + projName);
                 }
 
                 //Only White space or empty text input value
