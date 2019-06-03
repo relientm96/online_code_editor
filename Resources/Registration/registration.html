@@ -1,4 +1,4 @@
-<HTML>
+﻿<HTML>
 <HEAD>
 
     <meta charset="utf-8">
@@ -78,7 +78,7 @@
                 <form id="formid">
                     <div class="form-group">
                         <input id="inputProjectName" type="text" class="form-control" placeholder="Enter project name" onsubmit="sendName()">
-                        <small id="projecthelp" class="form-text text-muted">Enter your project file name and code away!</small>
+                        <small id="projecthelp" class="form-text text-muted">Enter your project file name and click on Code Now!</small>
                     </div>
                 </form>
 
@@ -95,8 +95,8 @@
 
             var input = document.getElementById("inputProjectName");
             input.addEventListener("keyup", function (event) {
-                event.preventDefault();
                 if (event.keyCode === 13) {
+                    event.preventDefault();
                     document.getElementById("codeNowButton").click();
                 }
             });

@@ -199,7 +199,7 @@ int main(){
     //GET the time sample
     function showTimeSample() {
       const Http = new XMLHttpRequest();
-      const Url = "http://teliosdesign.dynalias.com:7000/Samples/time.c"
+      const Url = "http://localhost:7000/Samples/time.c"
       Http.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
           editor.setValue(this.responseText);
@@ -212,7 +212,7 @@ int main(){
     //GET the add sample
     function showAddSample() {
       const Http = new XMLHttpRequest();
-      const Url = "http://teliosdesign.dynalias.com:7000/Samples/addTwoNumbers.c";
+      const Url = "http://localhost:7000/Samples/addTwoNumbers.c";
       Http.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
           editor.setValue(this.responseText);
@@ -225,7 +225,7 @@ int main(){
     //GET the tree sample
     function showTreeExample() {
       const Http = new XMLHttpRequest();
-      const Url = "http://teliosdesign.dynalias.com:7000/Samples/drawTree.c";
+      const Url = "http://localhost:7000/Samples/drawTree.c";
       Http.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
           editor.setValue(this.responseText);
@@ -238,7 +238,7 @@ int main(){
     //GET the name sample
     function showNameExample() {
       const Http = new XMLHttpRequest();
-      const Url = "http://teliosdesign.dynalias.com:7000/Samples/printName.c";
+      const Url = "http://localhost:7000/Samples/printName.c";
       Http.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
           editor.setValue(this.responseText);
