@@ -4,7 +4,8 @@ This is an online C Code Editor running on browser.
 Link to access: http://18.136.124.233 
 
 Features:
-- Deployed to an ec2 Windows Instance
+- Deployed to a Windows Amazon EC2 Instance.
+- Uses NGINX to redirect requests to internal application.
 - C++ and POCO Libraries on server side.
 - CodeMirror embedded for online code editing.
 - HTML, CSS and Javscript with Bootstrap for front end formatting and layout.
