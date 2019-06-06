@@ -96,7 +96,7 @@
             var input = document.getElementById("inputProjectName");
             input.addEventListener("keyup", function (event) {
                 if (event.keyCode === 13) {
-                    event.preventDefault();
+                    //event.preventDefault();
                     document.getElementById("codeNowButton").click();
                 }
             });
@@ -110,15 +110,18 @@
 
                     //Create a post request to server
                     const Http = new XMLHttpRequest();
-                    const Url = 'http://localhost:7000/app?name=' + projName;
+                    const Url = window.location.href + '?name=' + projName;
 
                     Http.open("POST", Url, true);
                     Http.setRequestHeader("Content-Type", "text/plain");
                     Http.setRequestHeader("Name", projName);
                     Http.send(projName);
 
+                    //Remove trailing edge slash
+                    var newUrl = location.href.substring(0, location.href.length - 1);
+					console.log(newUrl);
                     //Send user to code editor
-                    document.location.assign('http://localhost:7000/app?name=' + projName);
+                    document.location.assign(newUrl + '?name=' + projName);
                 }
 
                 //Only White space or empty text input value
