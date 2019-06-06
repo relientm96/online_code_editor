@@ -1,13 +1,13 @@
 ﻿# Online C Code Editor
 
 This is an online C Code Editor running on browser.  
-Link: http://teliosdesign.dynalias.com:7000  
+Link to access: http://18.136.124.233 
 
-Uses:
-
+Features:
+- Deployed to an ec2 Windows Instance
 - C++ and POCO Libraries on server side.
 - CodeMirror embedded for online code editing.
-- HTML, CSS and Javscript with bootstrap for front end formatting and layout.
+- HTML, CSS and Javscript with Bootstrap for front end formatting and layout.
 - GCC for C Compilation.
 
 Projcet Structure (Important Files):
