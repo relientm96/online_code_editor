@@ -95,6 +95,30 @@ void FileRender::doCreate(HTTPServerRequest &req, HTTPServerResponse &resp) {
  void FileRender::doDelete(HTTPServerRequest &req, HTTPServerResponse &resp) {
 	 //Test function here to test delete request
 	 printMessage(req, resp);
+
+	 //Obtaining Project name parameter from URI
+	 Poco::URI uri(req.getURI());
+	 Poco::URI::QueryParameters queryParams(uri.getQueryParameters());
+
+	 //Get the project filename from url query string
+	 for (const std::pair <std::string, std::string> &param : queryParams) {
+		 if (param.first == "name") {
+			 this->projName = param.second;
+		 }
+	 }
+	
+	 //Creating a new path and file object to deleting directory file 
+	 Poco::Path pathToDeletingDir("Projects/" + this->projName);
+	 Poco::File newFile(pathToDeletingDir);
+
+	 if (pathToDeletingDir.isFile()) {
+		 Poco::File newFile(pathToDeletingDir);
+		 //Deleting the chosen directory
+		 newFile.remove(true);
+	 }
+	 else {
+		 std::cout << "Directory Does not Exist!" << std::endl;
+	 }
  }
 
  void FileRender::printMessage(HTTPServerRequest &req, HTTPServerResponse &resp) {

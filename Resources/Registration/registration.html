@@ -75,7 +75,7 @@
 
                 <h1>C Code Editor</h1>
 
-                <form id="formid">
+                <form id="formid" onsubmit="sendName(); return false;">
                     <div class="form-group">
                         <input id="inputProjectName" type="text" class="form-control" placeholder="Enter project name" onsubmit="sendName()">
                         <small id="projecthelp" class="form-text text-muted">Enter your project file name and click on Code Now!</small>
@@ -117,11 +117,8 @@
                     Http.setRequestHeader("Name", projName);
                     Http.send(projName);
 
-                    //Remove trailing edge slash
-                    var newUrl = location.href.substring(0, location.href.length - 1);
-					console.log(newUrl);
                     //Send user to code editor
-                    document.location.assign(newUrl + '?name=' + projName);
+                    document.location.assign(window.location.href + '?name=' + projName);
                 }
 
                 //Only White space or empty text input value

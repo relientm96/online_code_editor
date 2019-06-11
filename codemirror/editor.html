@@ -196,6 +196,22 @@ int main(){
 
     }
 
+    window.addEventListener("beforeunload", function (e) {
+      var confirmationMessage = "\o/";
+
+      (e || window.event).returnValue = confirmationMessage; //Gecko + IE
+      return confirmationMessage;                            //Webkit, Safari, Chrome
+    });
+
+    //Deleting files by sending a DELETE Request when user closes window
+    window.onbeforeunload = function () {
+      const Http = new XMLHttpRequest();
+      const Url = window.location.href;
+      Http.open("DELETE", Url, true);
+      Http.setRequestHeader("Content-Type", "text/plain");
+      Http.send("Deleting this file");
+    };
+
     //GET the time sample
     function showTimeSample() {
 	   
