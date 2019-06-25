@@ -53,7 +53,7 @@ protected:
 		HTTPServer server(new MyRequestHandlerFactory, ServerSocket(PORT), new HTTPServerParams);
 
 		server.start();
-		std::cout << std::endl << "Server started" << "on Port: " << PORT << std::endl;
+		std::cout << std::endl << "Server started " << "on Port: " << PORT << std::endl;
 
 		waitForTerminationRequest(); 
 
