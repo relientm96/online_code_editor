@@ -170,12 +170,9 @@ int main(){
 
     //Compile the C-Code and perform a PUT request to server
     function compile() {
-
       var text = editor.getValue();
       const Http = new XMLHttpRequest();
-
       const Url = window.location.href;
-
       Http.onreadystatechange = function () {
         if (this.readyState == 4) {
           document.getElementById("output").innerHTML =
@@ -189,16 +186,14 @@ int main(){
 
         }
       };
-
       Http.open("PUT", Url, true);
       Http.setRequestHeader("Content-Type", "text/plain");
       Http.send(text);
-
     }
 
+    //Adding alert message when user attempts to exit
     window.addEventListener("beforeunload", function (e) {
       var confirmationMessage = "\o/";
-
       (e || window.event).returnValue = confirmationMessage; //Gecko + IE
       return confirmationMessage;                            //Webkit, Safari, Chrome
     });
@@ -214,9 +209,8 @@ int main(){
 
     //GET the time sample
     function showTimeSample() {
-	   
       const Http = new XMLHttpRequest();
-      const Url = "http://18.136.124.233/Samples/time.c";
+      const Url = "http://" + window.location.hostname + "/Samples/time.c";
       Http.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
           editor.setValue(this.responseText);
@@ -229,8 +223,7 @@ int main(){
     //GET the add sample
     function showAddSample() {
       const Http = new XMLHttpRequest();
-
-      const Url = "http://18.136.124.233/Samples/addTwoNumbers.c";
+      const Url = "http://" + window.location.hostname + "/Samples/addTwoNumbers.c";
       Http.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
           editor.setValue(this.responseText);
@@ -243,7 +236,7 @@ int main(){
     //GET the tree sample
     function showTreeExample() {
       const Http = new XMLHttpRequest();
-      const Url = "http://18.136.124.233/Samples/drawTree.c";
+      const Url = "http://" + window.location.hostname + "/Samples/drawTree.c";
       Http.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
           editor.setValue(this.responseText);
@@ -256,7 +249,7 @@ int main(){
     //GET the name sample
     function showNameExample() {
       const Http = new XMLHttpRequest();
-      const Url = "http://18.136.124.233/Samples/printName.c";
+      const Url = "http://" + window.location.hostname + "/Samples/printName.c";
       Http.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
           editor.setValue(this.responseText);

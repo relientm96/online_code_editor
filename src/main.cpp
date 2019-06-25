@@ -46,13 +46,14 @@ public:
 
 class MyServerApp : public ServerApplication
 {
+private: 
+	int PORT = 7000;
 protected:
-	int main(const std::vector<std::string> &)
-	{
-		HTTPServer server(new MyRequestHandlerFactory, ServerSocket(7000), new HTTPServerParams);
+	int main(const std::vector<std::string> &){
+		HTTPServer server(new MyRequestHandlerFactory, ServerSocket(PORT), new HTTPServerParams);
 
 		server.start();
-		std::cout << std::endl << "Server started" << std::endl;
+		std::cout << std::endl << "Server started" << "on Port: " << PORT << std::endl;
 
 		waitForTerminationRequest(); 
 
