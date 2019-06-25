@@ -1,7 +1,7 @@
 ﻿# Online C Code Editor
 
 This is an online C Code Editor running on browser.  
-Link to access: http://18.136.124.233 
+Link to access: http://13.229.230.199
 
 Features:
 - Deployed to a Windows Amazon EC2 Instance.
